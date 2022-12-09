@@ -1,6 +1,6 @@
 import './style.css';
 
-let taskArr = [
+const taskArr = [
   {
     index: 0,
     description: 'Attend to the Dev conference',
