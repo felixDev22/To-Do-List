@@ -17,3 +17,26 @@ const addNewList = () => {
 const pushToLocal = () => {
   localStorage.setItem('taskArr', JSON.stringify(taskArr));
 };
+
+const generateList = () => {
+  listItems.innerHTML = '';
+  taskArr.forEach((task) => {
+    const toDo = `<li class="task" >
+          <div class='item' >
+          <input type="Checkbox" id="1" />
+          <p>${task.description[i]}</p>
+          </div>
+          <div class='trash' ${task.index[i]}>
+            <i class="fa-regular fa-trash-can"></i>
+          </div>
+        </li>`;
+    listItems.innerHTML += toDo;
+    addTask.value = '';
+  });
+};
+const showList = () => {
+  if (localStorage.getItem('taskArr')) {
+    taskArr = JSON.parse(localStorage.getItem('taskArr'));
+  }
+  generateList();
+};
