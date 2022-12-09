@@ -89,6 +89,14 @@ form {
   color: #9c9c9c;
 }
 
+.active {
+  display: block;
+}
+
+.not-active {
+  display: none;
+}
+
 button {
   width: 100%;
   padding: 20px;
