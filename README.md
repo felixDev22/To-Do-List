@@ -25,20 +25,18 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-All you need VScompiler or a compiler of your choice.
-use command: npm run build
+To get a local copy up and running, follow these steps.
+
+### Prerequisites
+
+Code Editor:visual Studio code - Chrome Web Browser
 
 ### Clone
 
 Clone this repository to your desired folder:
 
+cd my-folder
 git clone https://github.com/felixDev22/To-do-list
-
-### Run
-
-To run project, run the following command: git clone
-
-Open in desired editor.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
