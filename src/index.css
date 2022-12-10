@@ -78,3 +78,10 @@ button {
   text-align: center;
   border: none;
 }
+
+/* Interactive */
+
+.mark-completed {
+  text-decoration: line-through;
+  color: gray;
+}
