@@ -1,7 +1,8 @@
 import { listItems, addTask } from './variables.js';
 import boxChecked from './completed.js';
 
-let taskArr = [];
+// eslint-disable-next-line import/no-mutable-exports
+export let taskArr = [];
 
 const addNewList = () => {
   const task = {};

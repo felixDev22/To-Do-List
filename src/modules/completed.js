@@ -4,5 +4,4 @@ const boxChecked = (box) => {
   }
   return false;
 };
-
 export default boxChecked;
