@@ -23,7 +23,6 @@ const pushToLocal = () => {
 // To render the task list
 
 const generateList = () => {
-  listItems.innerHTML = '';
   taskArr.forEach((task) => {
     listItems.innerHTML += `
         <li class="task" >
@@ -32,31 +31,15 @@ const generateList = () => {
           <p>"${task.description}"</p>
           </div>
           <div id="edit" class="hide">
-         <i class="fa-solid fa-ellipsis-vertical" data-id="${task.index}"></i>
+         <i class="fa-solid fa-ellipsis-vertical"></i>
           </div>
-          <i class="fa-regular fa-trash-can" class="remove" data-id="${task.id}"></i>
+         
+          <i data-action="delete" class="fa-regular fa-trash-can" id="removeBtn"></i>
+         
         </li>`;
     addTask.value = '';
   });
 };
-
-// Delete Button to remove task
-
-const removeTask = document.querySelectorAll('.remove');
-
-removeTask.forEach((button) => {
-  button.addEventListener('click', () => {
-    const dataSet = parseInt(button.dataset.id, 10);
-    const buttonId = taskArr.findIndex((object) => object.id === dataSet);
-
-    const deleted = (index) => {
-      taskArr.splice(index, 1);
-      generateList();
-      localStorage.setItem('taskArr', JSON.stringify(taskArr));
-    };
-    deleted(buttonId);
-  });
-});
 
 const showList = () => {
   if (localStorage.getItem('taskArr')) {
@@ -71,10 +54,40 @@ window.addEventListener('load', () => {
   showList();
 });
 
+addTask.addEventListener('keypress', (e) => {
+  const { target } = e;
+  if (target.value === '') return;
+  if (e.key === 'Enter') {
+    addNewList();
+  }
+});
+
 // Add Button to add new task
 
 addBtn.addEventListener('click', () => {
   addNewList();
   generateList();
   pushToLocal();
+});
+
+// Delete Button to remove task
+
+const removeList = (index) => {
+  taskArr.splice(index, 1);
+  addNewList();
+  generateList();
+  pushToLocal();
+};
+
+listItems.addEventListener('click', (e) => {
+  const { target } = e;
+  const parentElement = target.parentNode;
+  if (!parentElement.classList.contains('task')) return;
+  const eachListId = Number(parentElement.id);
+  // target the data action
+  const { action } = target.dataset;
+
+  if (action === 'delete') {
+    removeList(eachListId);
+  }
 });

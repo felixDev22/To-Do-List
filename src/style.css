@@ -85,17 +85,8 @@ form {
   gap: 20px;
 }
 
-button {
-  padding: 10px;
-  background: red;
-}
-
-.remove {
-  color: #9c9c9c;
-  background: red;
-  outline: none;
-  border: none;
-  cursor: pointer;
+button img {
+  width: 100%;
 }
 
 .active {
