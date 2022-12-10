@@ -9,6 +9,7 @@ import {
   removeList,
   checkCompleted,
 } from './modules/display.js';
+import removeAllCompleted from './modules/clearCompleted.js';
 
 import boxChecked from './modules/completed.js';
 
@@ -63,4 +64,13 @@ listItems.addEventListener('change', (e) => {
     checkCompleted(eachListId, target);
     boxChecked(target);
   }
+});
+
+// Clear completed tasks
+const clearButton = document.querySelector('.clear');
+clearButton.addEventListener('click', () => {
+  removeAllCompleted();
+  addNewList();
+  generateList();
+  pushToLocal();
 });

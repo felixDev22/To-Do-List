@@ -50,10 +50,10 @@ const showList = () => {
 // Delete Button to remove task
 
 const removeList = (index) => {
-  taskArr.splice(index, 1);
-  addNewList();
-  generateList();
-  pushToLocal();
+  taskArr.splice(index - 1, 1);
+  for (let i = index - 1; i < taskArr.length; i += 1) {
+    taskArr[i].idex -= 1;
+  }
 };
 
 // Completed task list
