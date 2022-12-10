@@ -40,7 +40,7 @@ addBtn.addEventListener('click', () => {
 listItems.addEventListener('click', (e) => {
   const { target } = e;
   const parentElement = target.parentNode;
-  if (!parentElement.classList.contains('item')) return;
+  if (!parentElement.classList.contains('task')) return;
   const eachListId = Number(parentElement.id);
   // target the data action
   const { action } = target.dataset;
