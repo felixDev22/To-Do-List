@@ -85,19 +85,19 @@ form {
   gap: 20px;
 }
 
-.trash {
-  color: #9c9c9c;
+button img {
+  width: 100%;
 }
 
 .active {
   display: block;
 }
 
-.not-active {
+.hide {
   display: none;
 }
 
-button {
+.clear {
   width: 100%;
   padding: 20px;
   background: #d2d2d2;
