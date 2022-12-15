@@ -2,12 +2,13 @@
 import { taskArr } from './display.js';
 
 const removeAllCompleted = () => {
-  const newTasks = taskArr.filter((taskArr) => !taskArr.completed);
-  for (let i = 0; i < newTasks.length; i += 1) {
-    newTasks[i].index = i + 1;
+  const newTaskArr = taskArr.filter((taskArr) => taskArr.completed === false);
+  for (let i = 0; i < newTaskArr.length; i += 1) {
+    newTaskArr[i].index = i + 1;
   }
-  taskArr.length = 0;
-  newTasks.forEach((newTask) => taskArr.push(newTask));
+  taskArr.splice(0, taskArr.length, ...newTaskArr);
+
+  location.reload();
 };
 
 export default removeAllCompleted;
