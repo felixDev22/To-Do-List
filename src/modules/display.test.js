@@ -11,6 +11,7 @@ describe('Testing remove and add functions', () => {
     const taskArr = JSON.parse(localStorage.getItem('taskArr'));
     expect(taskArr.length).toBe(4);
   });
+
   // Test for deleting
   test('Should delete one task', () => {
     removeList(0);
