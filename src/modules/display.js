@@ -10,6 +10,8 @@ const addNewList = () => {
   task.description = addTask.value;
   task.completed = false;
   taskArr.push(task);
+
+  pushToLocal();
 };
 
 // Save To Local Directory
