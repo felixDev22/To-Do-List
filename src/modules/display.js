@@ -4,18 +4,20 @@ import boxChecked from './completed.js';
 // eslint-disable-next-line import/no-mutable-exports
 export let taskArr = [];
 
+// Save To Local Directory
+
+const pushToLocal = () => {
+  localStorage.setItem('taskArr', JSON.stringify(taskArr));
+};
+
 const addNewList = () => {
   const task = {};
   task.index = taskArr.length + 1;
   task.description = addTask.value;
   task.completed = false;
   taskArr.push(task);
-};
 
-// Save To Local Directory
-
-const pushToLocal = () => {
-  localStorage.setItem('taskArr', JSON.stringify(taskArr));
+  pushToLocal();
 };
 
 // To render the task list
@@ -25,7 +27,7 @@ const generateList = () => {
     listItems.innerHTML += `
         <li class="task" >
           <div class='item' >
-          <input data-action="checkbox" type="Checkbox" id='1' data-id="${task.index}" />
+          <input data-action="checkbox" type="Checkbox" id='${task.index}' data-id="${task.index}" />
           <p class="description">"${task.description}"</p>
           </div class='item'>
           
@@ -36,7 +38,7 @@ const generateList = () => {
           <i data-action="delete" class="fa-regular fa-trash-can" id="removeBtn"></i>
          
         </li>`;
-    addTask.value = '';
+    task.value = '';
   });
 };
 
@@ -50,9 +52,13 @@ const showList = () => {
 // Delete Button to remove task
 
 const removeList = (index) => {
-  taskArr.splice(index, 1);
-  addNewList();
-  generateList();
+  if (localStorage.getItem('taskArr')) {
+    taskArr = JSON.parse(localStorage.getItem('taskArr'));
+  }
+  taskArr.splice(index - 1, 1);
+  for (let i = 1; i < taskArr.length; i += 1) {
+    taskArr[i - 1].index = i;
+  }
   pushToLocal();
 };
 

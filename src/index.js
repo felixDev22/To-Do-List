@@ -70,7 +70,6 @@ listItems.addEventListener('change', (e) => {
 const clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', () => {
   removeAllCompleted();
-  addNewList();
   generateList();
   pushToLocal();
 });
