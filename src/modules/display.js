@@ -4,6 +4,12 @@ import boxChecked from './completed.js';
 // eslint-disable-next-line import/no-mutable-exports
 export let taskArr = [];
 
+// Save To Local Directory
+
+const pushToLocal = () => {
+  localStorage.setItem('taskArr', JSON.stringify(taskArr));
+};
+
 const addNewList = () => {
   const task = {};
   task.index = taskArr.length + 1;
@@ -12,12 +18,6 @@ const addNewList = () => {
   taskArr.push(task);
 
   pushToLocal();
-};
-
-// Save To Local Directory
-
-const pushToLocal = () => {
-  localStorage.setItem('taskArr', JSON.stringify(taskArr));
 };
 
 // To render the task list
