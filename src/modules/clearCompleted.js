@@ -7,8 +7,6 @@ const removeAllCompleted = () => {
     newTaskArr[i].index = i + 1;
   }
   taskArr.splice(0, taskArr.length, ...newTaskArr);
-
-  location.reload();
 };
 
 export default removeAllCompleted;
