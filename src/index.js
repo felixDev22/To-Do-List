@@ -33,6 +33,7 @@ addBtn.addEventListener('click', () => {
   addNewList();
   generateList();
   pushToLocal();
+  location.reload();
 });
 
 // delete Button to remove task
@@ -70,7 +71,6 @@ listItems.addEventListener('change', (e) => {
 const clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', () => {
   removeAllCompleted();
-  addNewList();
   generateList();
   pushToLocal();
 });
