@@ -33,7 +33,6 @@ addBtn.addEventListener('click', () => {
   addNewList();
   generateList();
   pushToLocal();
-  location.reload();
 });
 
 // delete Button to remove task

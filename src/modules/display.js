@@ -56,12 +56,10 @@ const removeList = (index) => {
     taskArr = JSON.parse(localStorage.getItem('taskArr'));
   }
   taskArr.splice(index - 1, 1);
-  generateList();
-  pushToLocal();
   for (let i = 1; i < taskArr.length; i += 1) {
     taskArr[i - 1].index = i;
   }
-  location.reload();
+  pushToLocal();
 };
 
 // Completed task list
