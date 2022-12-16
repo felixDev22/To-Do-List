@@ -42,6 +42,22 @@ const generateList = () => {
   });
 };
 
+const completed = (id) => {
+  if (localStorage.getItem('taskArr')) {
+    taskArr = JSON.parse(localStorage.getItem('taskArr'));
+  }
+  taskArr[id].completed = true;
+  pushToLocal();
+};
+
+const notCompleted = (id) => {
+  if (localStorage.getItem('taskArr')) {
+    taskArr = JSON.parse(localStorage.getItem('taskArr'));
+  }
+  taskArr[id].completed = false;
+  pushToLocal();
+};
+
 const showList = () => {
   if (localStorage.getItem('taskArr')) {
     taskArr = JSON.parse(localStorage.getItem('taskArr'));
@@ -87,4 +103,6 @@ export {
   removeList,
   checkCompleted,
   editTask,
+  completed,
+  notCompleted,
 };
