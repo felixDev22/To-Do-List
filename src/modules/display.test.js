@@ -1,4 +1,4 @@
-import { addNewList, removeList } from './display.js';
+import { addNewList, removeList, editTask } from './display.js';
 
 jest.mock('./variables.js');
 describe('Testing remove and add functions', () => {
@@ -17,5 +17,12 @@ describe('Testing remove and add functions', () => {
     removeList(0);
     const taskArr = JSON.parse(localStorage.getItem('taskArr'));
     expect(taskArr.length).toBe(3);
+  });
+
+  // Test for Editing task
+  test('test editTask() function', () => {
+    editTask(2, 'modified task');
+    const taskArr = JSON.parse(localStorage.getItem('taskArr'));
+    expect(taskArr[2].description).toBe('modified task');
   });
 });
