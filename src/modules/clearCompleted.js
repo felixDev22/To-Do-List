@@ -1,5 +1,5 @@
 // eslint-disable-next-line object-curly-newline
-import { taskArr } from './display.js';
+import { taskArr, pushToLocal } from './display.js';
 
 const removeAllCompleted = () => {
   const newTaskArr = taskArr.filter((taskArr) => taskArr.completed === false);
@@ -7,6 +7,7 @@ const removeAllCompleted = () => {
     newTaskArr[i].index = i + 1;
   }
   taskArr.splice(0, taskArr.length, ...newTaskArr);
+  pushToLocal();
 };
 
 export default removeAllCompleted;

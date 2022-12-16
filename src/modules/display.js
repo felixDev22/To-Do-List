@@ -28,7 +28,7 @@ const generateList = () => {
         <li class="task" >
           <div class='item' >
           <input data-action="checkbox" type="Checkbox" id='${task.index}' data-id="${task.index}" />
-          <p class="description">"${task.description}"</p>
+          <p class="description">"${task.description}" data-action ="edit"</p>
           </div class='item'>
           
           <div id="edit" class="hide">
@@ -42,11 +42,32 @@ const generateList = () => {
   });
 };
 
+const completed = (id) => {
+  if (localStorage.getItem('taskArr')) {
+    taskArr = JSON.parse(localStorage.getItem('taskArr'));
+  }
+  taskArr[id].completed = true;
+  pushToLocal();
+};
+
+const notCompleted = (id) => {
+  if (localStorage.getItem('taskArr')) {
+    taskArr = JSON.parse(localStorage.getItem('taskArr'));
+  }
+  taskArr[id].completed = false;
+  pushToLocal();
+};
+
 const showList = () => {
   if (localStorage.getItem('taskArr')) {
     taskArr = JSON.parse(localStorage.getItem('taskArr'));
   }
   generateList();
+};
+
+const editTask = (id, value) => {
+  taskArr[id].description = value;
+  pushToLocal();
 };
 
 // Delete Button to remove task
@@ -81,4 +102,7 @@ export {
   showList,
   removeList,
   checkCompleted,
+  editTask,
+  completed,
+  notCompleted,
 };
